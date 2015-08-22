@@ -5,7 +5,7 @@ For this project the raw data is obtained from https://d396qusza40orc.cloudfront
 A decription of the methods used to obtain the data and variable names are available in the readme and features txt files that are part of the data set.
 
 
-This project has 5 objectives to be completed.
+This project has 5 objectives:
 
 1) To merge training and testing data sets
 
