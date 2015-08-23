@@ -18,7 +18,7 @@ This project has 5 objectives:
 5) Create a tidy data set for the mean of each variable for each activity for each user from the data set in task 4
 
 The r file in this project tackles each of the above items and eventually saves a tidy data set in a file called tidy_data.txt.
-A description of the variables in the tidy_data.txt is provided in the code_book.md file.
+A description of the variables in the tidy_data.txt is provided in the tidy_data_code_book.md file.
 
 ## Using the r code to obtain a tidy_data set
 
