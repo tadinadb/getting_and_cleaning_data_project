@@ -1,6 +1,19 @@
 This file describes the variables in the tidy_data.txt.
 
-The data in this file summaries the data from the UCI HAR data set as described in the Readme.md file.
+The data in this file summaries the variables obtained from processing the UCI HAR data set as described in the Readme.md file.
+
+All the columns are providing means of the the measurements or transformed values that were obtained from the UCI HAR data set. Taking an example of the first column, mean_tBodyAcc-mean()-X, the data in this column provides the mean value of the means of rolling window bodyacceleration measured along the X axis by the accelerometer per subject per activity.
+
+Columns with the names t in them are time domain data while those with f in them are frequency domain data. Columns with BodyAcc in the name provide data on the body acceleration along a particular axis (X,Y or Z). Columns with GravityAcc measure the gravitation acceleration along each if the axis (X, Y or Z). Based on the BodyAcc and GravityAcc jerk signals were determined to determine body motion alone and these from the columns with BodyJerkAcc.
+
+Signals from the gyroscope's measurement form the columns with the name Gyro in them and similar to the above section measurement of the gravitational acceleration and body acceleration are obtained to get the time domain variables.
+
+The measurements of the acceleration are angular accelerations and are therefore in the units rad per second per second. 
+
+Once a FFT has been applied to obtain the frequency domain interpretation of these variables (denoted with the f in column) all the time domain columns have an eqivalent representation in the frequency domain.
+Units of the frequency domain signals are in Hz.
+
+The final 2 columns provide the activity involved and subject who carried out the activity. 
 
 "mean_tBodyAcc-mean()-X"
 "mean_tBodyAcc-mean()-Y"
