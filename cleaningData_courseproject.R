@@ -1,13 +1,13 @@
 ##read the test data set
-x_test=read.table("UCI HAR Dataset/test/X_test.txt")
-y_test=read.table("UCI HAR Dataset/test/y_test.txt")
-sub_test=read.table("UCI HAR Dataset/test/subject_test.txt")
+x_test=read.table("/Users/tadinadabhaskar/Documents/courses/UCI HAR Dataset/test/X_test.txt")
+y_test=read.table("/Users/tadinadabhaskar/Documents/courses/UCI HAR Dataset/test/y_test.txt")
+sub_test=read.table("/Users/tadinadabhaskar/Documents/courses/UCI HAR Dataset/test/subject_test.txt")
 #combine the data into 1 table
 test_data<-cbind(x_test,y_test,sub_test)
 #read the training data set
-y_train=read.table("UCI HAR Dataset/train/y_train.txt")
-x_train=read.table("UCI HAR Dataset/train/X_train.txt")
-sub_train=read.table("UCI HAR Dataset/train/subject_train.txt")
+y_train=read.table("/Users/tadinadabhaskar/Documents/courses/UCI HAR Dataset/train/y_train.txt")
+x_train=read.table("/Users/tadinadabhaskar/Documents/courses/UCI HAR Dataset/train/X_train.txt")
+sub_train=read.table("/Users/tadinadabhaskar/Documents/courses/UCI HAR Dataset/train/subject_train.txt")
 #combine the data into 1 table
 train_data<-cbind(x_train,y_train,sub_train)
 #combine the training and test data (first task complete)
@@ -15,7 +15,7 @@ all_Data<-rbind(test_data, train_data)
 
 #to filter the combined data set to only have the mean and std dev values of the measurements
 #read the column names from the features txt file
-fileInput<-readLines("UCI HAR Dataset/features.txt")
+fileInput<-readLines("/Users/tadinadabhaskar/Documents/courses/UCI HAR Dataset/features.txt")
 #create the expression to match the fields we need 
 toMatch<-c("mean()","std()")
 #get the column numbers of the columns to filter on and extract it from the combined data
@@ -67,6 +67,10 @@ for(i in unique(filtered_data$subject)){
 }
 
 #now that we have the data just add the updated column names
-colnames(tidy_data)<-sapply(colnames(filtered_data),function(name){paste0("mean_",name)})
+colnamestd<-sapply(colnames(filtered_data),function(name){paste0("mean_",name)})
+colnamestd[(length(colnamestd)-1)]<-"activity"
+colnamestd[length(colnamestd)]<-"subject"
+colnames(tidy_data)<-colnamestd
+
 #save the data to a file
-write.table(tidy_data,file="UCI HAR Dataset/tidy_data.txt",row.names = FALSE)
+write.table(tidy_data,file="/Users/tadinadabhaskar/Documents/courses/UCI HAR Dataset/tidy_data.txt",row.names = FALSE)
